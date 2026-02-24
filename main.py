@@ -1,12 +1,15 @@
+from pathlib import Path
 from fasthtml.common import *
 
-app, rt = fast_app(live=True)
+app, rt = fast_app()
+
+HERE = Path(__file__).parent
 
 
 @rt("/")
 def get():
-    with open("index.html", "r") as f:
-        return Response(f.read(), media_type="text/html")
+    return Response((HERE / "index.html").read_text(), media_type="text/html")
 
 
-serve()
+if __name__ == "__main__":
+    serve()
