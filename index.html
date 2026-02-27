@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ricardo Borenstein — Applied AI & Solutions Engineering</title>
+<title>Ricardo Borenstein — Pre-Sales, Solutions Architecture & Applied AI</title>
+<meta name="description" content="Ricardo Borenstein — Pre-Sales Engineer, Solutions Architect, and Applied AI builder. 10+ years making complex technology generate revenue for enterprise companies.">
+<meta property="og:title" content="Ricardo Borenstein — Pre-Sales, Solutions Architecture & Applied AI">
+<meta property="og:description" content="Your next technical hire should close deals AND write code. 10+ years making complex technology generate revenue.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ricardoborenstein.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ricardo Borenstein — Pre-Sales, Solutions Architecture & Applied AI">
+<meta name="twitter:description" content="Your next technical hire should close deals AND write code. 10+ years making complex technology generate revenue.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -378,6 +387,61 @@
 
   .section-title .muted { color: var(--text-muted); }
 
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    padding: 48px 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-bottom: 16px;
+  }
+
+  .trust-row:last-child { margin-bottom: 0; }
+
+  .trust-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .trust-item.highlight {
+    color: var(--neon);
+    font-weight: 500;
+  }
+
+  .trust-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(0,245,196,0.3);
+    display: inline-block;
+  }
+
+  .trust-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(107,122,153,0.5);
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .trust-bar { padding: 32px 20px; }
+    .trust-row { gap: 8px 16px; }
+    .trust-item { font-size: 10px; }
+  }
+
   /* ── ABOUT ── */
   #about { background: var(--bg2); }
 
@@ -560,6 +624,17 @@
     margin-bottom: 16px;
   }
 
+  .exp-impact {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--neon);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 2px solid rgba(0,245,196,0.3);
+    line-height: 1.6;
+  }
+
   .exp-tags {
     display: flex;
     flex-wrap: wrap;
@@ -632,8 +707,16 @@
     font-family: 'Syne', sans-serif;
     font-size: 17px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--text);
+  }
+
+  .skill-pitch {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 14px;
+    font-style: italic;
   }
 
   .skill-list {
@@ -858,6 +941,34 @@
     border-radius: 50%;
     background: var(--neon);
     animation: pulse 2s ease-in-out infinite;
+  }
+
+  .footer-claude {
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .footer-claude span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(107,122,153,0.5);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  .footer-claude a {
+    color: rgba(107,122,153,0.7);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(107,122,153,0.2);
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .footer-claude a:hover {
+    color: var(--neon);
+    border-color: var(--neon);
   }
 
   /* ── ANIMATIONS ── */
@@ -1193,17 +1304,17 @@
 <section id="hero">
   <div class="hero-inner" style="position:relative;">
     <div class="hero-left">
-      <div class="hero-label"><span>// Available for new opportunities</span></div>
+      <div class="hero-label"><span>// Open to roles &amp; partnerships</span></div>
       <h1 class="hero-name">
         <span class="first">Ricardo</span>
         <span class="last">Borenstein</span>
       </h1>
       <p class="hero-tagline">
-        <strong>Applied AI &amp; Solutions Engineer</strong> — bridging complex technology with business outcomes. Pre-Sales, Architecture, Customer Success, and AI-native product development.
+        <strong>Your next technical hire should close deals AND write code.</strong> I own the full technical sales cycle — from first discovery call to signed contract — and I build production AI systems from scratch. 10+ years making complex technology generate revenue.
       </p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Get in Touch</a>
-        <a href="#experience" class="btn-secondary">View Experience</a>
+        <a href="#contact" class="btn-primary">Let's Talk</a>
+        <a href="#experience" class="btn-secondary">See What I've Done</a>
       </div>
     </div>
 
@@ -1242,8 +1353,8 @@
             <div class="stat-label">Current focus</div>
           </div>
           <div class="stat-right">
-            <div class="stat-value" style="font-size:14px; color:var(--neon3)">Applied AI</div>
-            <div class="stat-sub">LLMs, voice agents</div>
+            <div class="stat-value" style="font-size:14px; color:var(--neon3)">Full-cycle Pre-Sales + Applied AI</div>
+            <div class="stat-sub">Discovery → Close → Production</div>
           </div>
         </div>
         <div class="tag-cloud" style="margin-top:20px;">
@@ -1266,24 +1377,62 @@
 
 <div class="section-divider"></div>
 
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-label">// Trusted across industries</div>
+  <div class="trust-row">
+    <span class="trust-item highlight">ScyllaDB</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item highlight">SQream</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item highlight">Dell EMC</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">SK Telecom</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">SK Hynix</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">LG Uplus</span>
+  </div>
+  <div class="trust-row">
+    <span class="trust-item">Telecom</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">Semiconductor</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">Enterprise SaaS</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">Cloud Infrastructure</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item">AI / ML</span>
+  </div>
+  <div class="trust-row" style="margin-top:8px;">
+    <span class="trust-item" style="color:rgba(0,245,196,0.5); font-size:10px;">Fortune 500 Customers</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item" style="color:rgba(0,245,196,0.5); font-size:10px;">Global Enterprise Rollouts</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item" style="color:rgba(0,245,196,0.5); font-size:10px;">Tens of Millions of End Users</span>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
     <div class="section-label">01 / About</div>
-    <h2 class="section-title">The Bridge Between <span class="muted">Tech &amp; Business</span></h2>
+    <h2 class="section-title">The Problem <span class="muted">I Fix</span></h2>
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm a <strong>customer-facing technical professional</strong> with over 10 years of experience across solutions engineering, pre-sales, distributed systems architecture, and applied AI. I've spent my career at the intersection of engineering depth and business impact — translating complex platforms into measurable outcomes for enterprise customers.
+          Most companies bleed pipeline because their sales team can't go deep enough technically, and their engineers can't sell. Discovery calls stall. PoCs drag on without clear success criteria. Stakeholders misalign. <strong>Deals die in technical review.</strong>
         </p>
         <p>
-          My work at <strong>ScyllaDB</strong> took me through Fortune 500 enterprise cycles — leading PoCs, architecture reviews, and technical workshops for workloads at tens of millions of users. Before that, at <strong>SQream</strong>, I delivered production rollouts for global leaders like SK Telecom, SK Hynix, and LG Uplus.
+          I'm the person who fixes that. I run the <strong>full technical sales cycle</strong> — discovery, qualification, architecture, PoC, close — and I stay through production and expansion. Fortune 500 accounts. CTO-level conversations. Complex distributed systems. I've done the hard ones.
         </p>
         <p>
-          Today I'm building at the frontier: <strong>HeyBirdie.AI</strong> is my applied AI project — a voice agent platform integrating real-time LLM workflows, streaming inference, and multi-turn conversation design. Alongside it, <strong>Datanised</strong> continues to serve enterprise clients with cloud-native architecture and data platform consulting.
+          I also build. <strong>HeyBirdie.AI</strong> is a voice agent platform I designed and shipped from zero — real-time, multi-turn AI conversations, live in production. When I architect a solution for your customer, it's because I've built systems like it myself.
         </p>
         <p>
-          I'm at my best when I'm running a discovery workshop, scoping a PoC, or designing a system that genuinely solves a hard problem. I bring engineering credibility, commercial awareness, and a deep drive to make technology actually work for the people using it.
+          If you need someone who can walk into a room, understand the technical problem, design the solution, run the PoC, close the deal, and then make sure it actually works — <strong>let's talk.</strong>
         </p>
       </div>
       <div class="about-right">
@@ -1306,8 +1455,8 @@
           </div>
         </div>
         <div class="info-block">
-          <div class="info-block-label">Open to</div>
-          <div class="info-block-value" style="color:var(--neon); font-size:14px; line-height:1.6;">Pre-Sales · Solutions Engineering · Applied AI Roles · Customer Success · Partnerships</div>
+          <div class="info-block-label">Let's work together on</div>
+          <div class="info-block-value" style="color:var(--neon); font-size:14px; line-height:1.6;">Pre-Sales Leadership · Solutions Architecture · Applied AI · Customer Success · Partnerships</div>
         </div>
       </div>
     </div>
@@ -1320,7 +1469,7 @@
 <section id="experience">
   <div class="section-wrap">
     <div class="section-label">02 / Experience</div>
-    <h2 class="section-title">Career <span class="muted">Timeline</span></h2>
+    <h2 class="section-title">What I've <span class="muted">Done</span></h2>
 
     <div class="timeline">
 
@@ -1333,7 +1482,8 @@
         <div class="timeline-content">
           <div class="exp-role">Founder & Applied AI Systems Engineer</div>
           <div class="exp-company">HEYBIRDIE.AI</div>
-          <p class="exp-desc">Designing and building an AI-native voice agent platform with real-time multi-turn conversation flows. Architecting latency-sensitive pipelines using streaming and async processing, integrating LLM orchestration, context management, and external API tooling for production-grade AI behaviours.</p>
+          <p class="exp-desc">Built an AI voice agent platform from zero to live production. Real-time multi-turn conversations, streaming inference, tool-use integration — designed to handle the constraints that kill most AI demos in production: latency, state management, and graceful failure.</p>
+          <div class="exp-impact">Proof I don't just sell technology — I ship it.</div>
           <div class="exp-tags">
             <span class="exp-tag">Applied AI</span><span class="exp-tag">LLM Workflows</span><span class="exp-tag">Voice Agents</span><span class="exp-tag">Real-Time Streaming</span><span class="exp-tag">Python</span><span class="exp-tag">TypeScript</span><span class="exp-tag">Cloud-Native</span>
           </div>
@@ -1349,7 +1499,8 @@
         <div class="timeline-content">
           <div class="exp-role">Co-Founder & Lead Solutions Architect</div>
           <div class="exp-company" style="color:var(--neon2);">DATANISED</div>
-          <p class="exp-desc">Leading technical discovery and architecture design for clients adopting modern data and cloud-native platforms. Translating business objectives into scalable technical roadmaps, running executive value workshops, and owning full customer engagement cycles from qualification through delivery handoff.</p>
+          <p class="exp-desc">Co-founded a consultancy that takes companies from "we need to modernize" to production-ready architecture. I run discovery, design the solution, and deliver — no handoff gap.</p>
+          <div class="exp-impact">Repeatable frameworks for PoC delivery and enterprise onboarding.</div>
           <div class="exp-tags">
             <span class="exp-tag">Solution Architecture</span><span class="exp-tag">Pre-Sales Discovery</span><span class="exp-tag">Cloud-Native</span><span class="exp-tag">Customer Success</span><span class="exp-tag">Executive Workshops</span>
           </div>
@@ -1365,7 +1516,8 @@
         <div class="timeline-content">
           <div class="exp-role">Senior Customer Solutions Architect</div>
           <div class="exp-company" style="color:var(--neon3);">SCYLLADB — Remote</div>
-          <p class="exp-desc">Owned enterprise technical sales cycles and post-sales architecture for Fortune 500 customers running mission-critical distributed workloads at massive scale. Led PoCs with clear success criteria, presented technical trade-offs to CTO-level stakeholders, and partnered with Product to accelerate adoption. Escalation lead for complex production incidents.</p>
+          <p class="exp-desc">Owned the full technical sales cycle for Fortune 500 accounts across EMEA. Ran PoCs with clear success criteria, presented architectural trade-offs to CTO-level stakeholders, led escalations for mission-critical distributed workloads serving tens of millions of users.</p>
+          <div class="exp-impact">The accounts I owned were the ones where the deal couldn't afford to lose on technical credibility.</div>
           <div class="exp-tags">
             <span class="exp-tag">Enterprise Pre-Sales</span><span class="exp-tag">PoC/PoV Leadership</span><span class="exp-tag">Distributed Systems</span><span class="exp-tag">ScyllaDB</span><span class="exp-tag">Linux</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">Fortune 500</span>
           </div>
@@ -1381,7 +1533,8 @@
         <div class="timeline-content">
           <div class="exp-role">Global Sales Engineer / Customer Success</div>
           <div class="exp-company">SQREAM — Tel Aviv</div>
-          <p class="exp-desc">Delivered PoCs and production rollouts for global enterprises including SK Telecom, SK Hynix, and LG Uplus. Designed GPU-accelerated analytics solutions, led Hadoop migrations, and bridged Sales, Engineering, and customer platform teams through complex deal cycles.</p>
+          <p class="exp-desc">Delivered production rollouts for three of South Korea's largest enterprises — SK Telecom, SK Hynix, LG Uplus. GPU-accelerated analytics, Hadoop migration, and bridging Sales, Engineering, and customer platform teams through complex deal cycles.</p>
+          <div class="exp-impact">Global enterprise deployments across language barriers, time zones, and organizational complexity.</div>
           <div class="exp-tags">
             <span class="exp-tag">Sales Engineering</span><span class="exp-tag">GPU Analytics</span><span class="exp-tag">Telecom</span><span class="exp-tag">Semiconductor</span><span class="exp-tag">PoC Delivery</span><span class="exp-tag">SQL</span>
           </div>
@@ -1414,7 +1567,7 @@
 <section id="skills">
   <div class="section-wrap">
     <div class="section-label">03 / Skills</div>
-    <h2 class="section-title">Core <span class="muted">Capabilities</span></h2>
+    <h2 class="section-title">What <span class="muted">I Do</span></h2>
     <div class="skills-grid">
 
       <div class="skill-card green">
@@ -1430,13 +1583,13 @@
             <path d="M8 24h4M16 24h4" stroke="var(--neon)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </span>
-        <div class="skill-title">Applied AI & LLM Systems</div>
+        <div class="skill-title">Build AI Systems That Ship</div>
+        <p class="skill-pitch">I design and deliver AI systems that survive production — not just demos. Latency, state, failure modes, and multi-turn context.</p>
         <ul class="skill-list">
           <li>LLM workflow design & orchestration</li>
           <li>Real-time voice agent pipelines</li>
           <li>Context & state management (RAG)</li>
           <li>Multi-turn conversation architecture</li>
-          <li>OpenAI, Claude, AI-assisted dev tools</li>
           <li>Latency-sensitive system design</li>
         </ul>
       </div>
@@ -1451,13 +1604,13 @@
             <path d="M14 3v4M14 21v4M3 14h4M21 14h4" stroke="var(--neon2)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </span>
-        <div class="skill-title">Pre-Sales & Solutions Engineering</div>
+        <div class="skill-title">Own the Full Technical Sale</div>
+        <p class="skill-pitch">Discovery to close. I run the qualification, architect the solution, lead the PoC, and stay in the room until the contract is signed.</p>
         <ul class="skill-list">
           <li>Technical discovery & qualification</li>
           <li>PoC / PoV leadership & delivery</li>
           <li>Executive value workshops</li>
           <li>Solution architecture & value mapping</li>
-          <li>Proposal writing & deal support</li>
           <li>CTO / VP-level stakeholder alignment</li>
         </ul>
       </div>
@@ -1470,14 +1623,14 @@
             <path d="M8 22h12" stroke="var(--neon3)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </span>
-        <div class="skill-title">Cloud & Distributed Systems</div>
+        <div class="skill-title">Architect Systems That Scale</div>
+        <p class="skill-pitch">Production infrastructure for workloads that can't go down. Designed for millions of users, not slide decks.</p>
         <ul class="skill-list">
           <li>AWS, Azure, GCP</li>
           <li>Kubernetes, Docker, Helm</li>
           <li>ScyllaDB, MongoDB, Redpanda, Kafka</li>
           <li>Linux administration & debugging</li>
           <li>Distributed systems & scalability</li>
-          <li>CI/CD, production reliability</li>
         </ul>
       </div>
 
@@ -1492,13 +1645,13 @@
             <path d="M11 22c0-1.7 1.3-3 3-3s3 1.3 3 3" stroke="var(--neon2)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </span>
-        <div class="skill-title">Customer Success & Partnerships</div>
+        <div class="skill-title">Keep Customers Growing</div>
+        <p class="skill-pitch">I don't just close deals — I make them stick. Revenue isn't revenue until it renews.</p>
         <ul class="skill-list">
           <li>Enterprise account management</li>
           <li>QBRs, onboarding frameworks</li>
           <li>Renewal & expansion strategy</li>
           <li>Escalation governance & resolution</li>
-          <li>Long-term relationship building</li>
           <li>EMEA cross-border client engagement</li>
         </ul>
       </div>
@@ -1512,14 +1665,14 @@
             <circle cx="8" cy="10.5" r="1" fill="var(--neon)"/>
           </svg>
         </span>
-        <div class="skill-title">Engineering & Development</div>
+        <div class="skill-title">Write Code That Solves Problems</div>
+        <p class="skill-pitch">Python-first. I build prototypes, PoC tooling, and production systems. Not a theoretical engineer — a practical one.</p>
         <ul class="skill-list">
-          <li>Python (strong) — scripting & automation</li>
-          <li>TypeScript / JavaScript exposure</li>
+          <li>Python — scripting, automation & apps</li>
+          <li>TypeScript / JavaScript</li>
           <li>REST APIs, WebSockets, webhooks</li>
           <li>SQL, NoSQL data investigation</li>
           <li>Rapid prototyping & PoC builds</li>
-          <li>Operational tooling & diagnostics</li>
         </ul>
       </div>
 
@@ -1532,14 +1685,14 @@
             <path d="M4.5 9h19M4.5 19h19" stroke="var(--neon3)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </span>
-        <div class="skill-title">Communication & Leadership</div>
+        <div class="skill-title">Communicate Across Borders</div>
+        <p class="skill-pitch">Four languages. Executive-level presentation. I've sold in EMEA, delivered in APAC, and founded in Europe.</p>
         <ul class="skill-list">
           <li>Multilingual: EN, PT, ES, HE</li>
           <li>Executive-level presentation</li>
-          <li>Technical documentation & enablement</li>
           <li>Cross-functional coordination</li>
           <li>Startup founding & team building</li>
-          <li>International client exposure (EU, APAC, MENA)</li>
+          <li>International exposure (EU, APAC, MENA)</li>
         </ul>
       </div>
 
@@ -1640,8 +1793,9 @@
         <div>
           <span class="project-badge">// Current build — 2025</span>
           <div class="project-title">HeyBirdie.AI</div>
-          <p class="project-desc">An AI-native voice agent platform built from scratch. Real-time multi-turn conversations powered by LLMs, streaming inference pipelines, and orchestration logic for context-aware, persona-driven dialogue. Integrates external APIs for tool-use and production-deployed with full operational monitoring.</p>
-          <p class="project-desc" style="margin-top:12px;">Built to solve real constraints: latency tolerance, conversation state, graceful failure modes, and reliable async processing at the edge of what LLMs can do in live interactions.</p>
+          <p class="project-desc" style="color:var(--text); font-weight:400;">Most AI voice demos break in production. Latency spikes, context loss, graceless failures. The gap between "it works in a demo" and "it works on a live call" is where most projects die.</p>
+          <p class="project-desc" style="margin-top:12px;">Built from scratch: real-time multi-turn conversations powered by LLMs, streaming inference, orchestration logic for context-aware dialogue, and external API tool-use — production-deployed with full operational monitoring.</p>
+          <p class="project-desc" style="margin-top:12px; color:var(--neon); font-family:'JetBrains Mono',monospace; font-size:12px;">Live in production. Real conversations. Built solo, from architecture to deployment.</p>
           <div class="project-tags">
             <span class="project-tag">Python</span>
             <span class="project-tag">LLMs</span>
@@ -1667,7 +1821,8 @@
       <div class="project-card">
         <span class="project-badge blue">// Consultancy — 2024</span>
         <div class="project-title">Datanised</div>
-        <p class="project-desc">Co-founded a technical consultancy focused on cloud-native data platform modernisation. Led end-to-end client engagements from discovery through architecture and delivery — spanning distributed databases, streaming infrastructure, and cloud deployments. Built repeatable frameworks for PoC delivery and enterprise onboarding.</p>
+        <p class="project-desc" style="color:var(--text); font-weight:400; margin-bottom:10px;">Companies know they need to modernize. They don't know where to start, and they can't afford a 6-month discovery phase.</p>
+        <p class="project-desc">A consultancy that takes clients from first conversation to production-ready architecture. Repeatable frameworks, clear deliverables, no consulting theater.</p>
         <div class="project-tags">
           <span class="project-tag blue">Solution Architecture</span>
           <span class="project-tag blue">Cloud-Native</span>
@@ -1680,7 +1835,8 @@
       <div class="project-card">
         <span class="project-badge">// Enterprise — 2021-2024</span>
         <div class="project-title">Fortune 500 Platform Migrations</div>
-        <p class="project-desc">At ScyllaDB, led production architecture and PoC delivery for enterprise customers running workloads at tens of millions of users. Designed low-latency distributed database architectures, ran executive workshops, diagnosed critical incidents, and drove adoption across EMEA — collaborating directly with engineering and product to close feasibility gaps.</p>
+        <p class="project-desc" style="color:var(--text); font-weight:400; margin-bottom:10px;">Mission-critical systems serving tens of millions of users. Zero tolerance for downtime. The kind of migration where getting it wrong costs more than the deal.</p>
+        <p class="project-desc">Led the technical architecture, ran PoCs, aligned stakeholders, and delivered — across EMEA, for Fortune 500 accounts at ScyllaDB.</p>
         <div class="project-tags">
           <span class="project-tag">ScyllaDB</span>
           <span class="project-tag">PoC / PoV</span>
@@ -1701,8 +1857,9 @@
   <div class="section-wrap">
     <div class="contact-inner">
       <div class="section-label" style="text-align:center;">05 / Contact</div>
-      <h2 class="section-title" style="text-align:center;">Let's <span class="muted">Connect</span></h2>
-      <p class="contact-sub">I'm open to new opportunities in Applied AI, Pre-Sales Engineering, Solutions Architecture, and Customer Success. Based in Lisbon — available for remote EU and global roles.</p>
+      <h2 class="section-title" style="text-align:center;">Let's <span class="muted">Talk</span></h2>
+      <p class="contact-sub">I'm looking for my next challenge — whether that's leading pre-sales for a scaling company, architecting AI systems, or partnering on something ambitious. If you're building something complex and need someone who can sell it AND build it — I want to hear about it.</p>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--neon); letter-spacing:0.06em; margin-bottom:32px;">// I respond within 24 hours</p>
       <div class="contact-links">
         <a href="mailto:ricardo.borenstein@gmail.com" class="contact-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1723,15 +1880,26 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <span class="footer-text">© 2025 Ricardo Borenstein — Lisbon, Portugal</span>
+<footer style="flex-wrap:wrap;">
+  <span class="footer-text">&copy; 2026 Ricardo Borenstein — Lisbon, Portugal</span>
   <div class="footer-status">
     <div class="status-dot"></div>
     Open to opportunities
   </div>
+  <div class="footer-claude">
+    <span>&gt;_ This website was designed, built, and shipped with <a href="https://claude.ai/download" target="_blank" rel="noopener">Claude Code</a>. Yes — the AI that wrote this site is the same kind of technology I deploy for clients. Recursive, I know.</span>
+  </div>
 </footer>
 
 <script>
+  // Easter egg for the curious
+  console.log(`
+  %cHey, you opened DevTools. I like you already.
+
+  This site was built with Claude Code — because I practice what I sell.
+  Want to see what else I can build? ricardo.borenstein@gmail.com
+  `, 'color: #00f5c4; font-family: monospace; font-size: 12px;');
+
   // Scroll-triggered animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
