@@ -23,8 +23,9 @@
     --neon: #00f5c4;
     --neon2: #0080ff;
     --neon3: #7b2fff;
+    --purple-text: #b58aff;
     --text: #e8edf8;
-    --text-muted: #6b7a99;
+    --text-muted: #8593af;
     --border: rgba(0,245,196,0.12);
     --glow: 0 0 30px rgba(0,245,196,0.15);
   }
@@ -32,6 +33,19 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
+
+  section[id] { scroll-margin-top: 84px; }
+  .skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1200;
+    padding: 12px 20px;
+    background: var(--neon);
+    color: var(--bg);
+    transform: translateY(-180%);
+  }
+  .skip-link:focus { transform: none; }
 
   body {
     background: var(--bg);
@@ -156,6 +170,8 @@
     align-items: center;
     width: 100%;
   }
+
+  .hero-left { min-width: 0; }
 
   .hero-label {
     font-family: 'JetBrains Mono', monospace;
@@ -358,7 +374,7 @@
   }
 
   .tag.blue { background: rgba(0,128,255,0.05); border-color: rgba(0,128,255,0.2); color: var(--neon2); }
-  .tag.purple { background: rgba(123,47,255,0.05); border-color: rgba(123,47,255,0.2); color: var(--neon3); }
+  .tag.purple { background: rgba(123,47,255,0.05); border-color: rgba(123,47,255,0.2); color: var(--purple-text); }
 
   /* ── SECTION WRAPPER ── */
   .section-wrap {
@@ -535,11 +551,10 @@
     grid-template-columns: 180px 1fr;
     gap: 48px;
     margin-bottom: 64px;
-    opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
+  .timeline-item.reveal-pending { opacity: 0; transform: translateY(20px); }
   .timeline-item.visible { opacity: 1; transform: none; }
 
   .timeline-date {
@@ -744,7 +759,7 @@
   }
 
   .skill-card.blue .skill-list li::before { color: var(--neon2); }
-  .skill-card.purple .skill-list li::before { color: var(--neon3); }
+  .skill-card.purple .skill-list li::before { color: var(--purple-text); }
 
   /* ── PROJECTS ── */
   #projects {}
@@ -837,7 +852,7 @@
   .pv-key { color: var(--neon2); }
   .pv-val { color: var(--text-muted); }
   .pv-val.green { color: var(--neon); }
-  .pv-val.purple { color: var(--neon3); }
+  .pv-val.purple { color: var(--purple-text); }
 
   .project-tags {
     display: flex;
@@ -885,6 +900,8 @@
 
   .contact-link {
     display: flex;
+    min-width: 0;
+    overflow-wrap: anywhere;
     align-items: center;
     gap: 10px;
     padding: 16px 32px;
@@ -906,7 +923,7 @@
     box-shadow: 0 0 30px rgba(0,245,196,0.15);
   }
 
-  .contact-link svg { width: 18px; height: 18px; }
+  .contact-link svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   /* ── FOOTER ── */
   footer {
@@ -1026,8 +1043,18 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 11px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
     z-index: 110;
+  }
+
+  nav a:focus-visible,
+  .nav-toggle:focus-visible {
+    outline: 2px solid var(--neon);
+    outline-offset: 6px;
   }
 
   .nav-toggle span {
@@ -1072,11 +1099,16 @@
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
+      height: 100vh;
+      height: 100dvh;
+      padding: 88px 24px;
+      overflow-y: auto;
       background: rgba(5,8,16,0.96);
       backdrop-filter: blur(20px);
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      justify-content: safe center;
       gap: 32px;
       z-index: 105;
     }
@@ -1114,6 +1146,10 @@
   }
 
   /* ── RADAR CHART ── */
+  @media (max-width: 360px) {
+    .hero-name { font-size: 34px; }
+  }
+
   .radar-wrap {
     grid-column: 1 / -1;
     margin-top: 72px;
@@ -1243,9 +1279,11 @@
   .rli-bar-fill {
     position: absolute;
     top: 0; left: 0; bottom: 0;
-    width: 0%;
+    width: var(--score, 0%);
     transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  .radar-pending .rli-bar-fill { width: 0%; }
 
   .rli-bar-fill.green { background: linear-gradient(90deg, var(--neon), rgba(0,245,196,0.3)); }
   .rli-bar-fill.blue  { background: linear-gradient(90deg, var(--neon2), rgba(0,128,255,0.3)); }
@@ -1259,7 +1297,7 @@
 
   .rli-score.green  { color: var(--neon); }
   .rli-score.blue   { color: var(--neon2); }
-  .rli-score.purple { color: var(--neon3); }
+  .rli-score.purple { color: var(--purple-text); }
 
   @media (max-width: 960px) {
     .radar-wrap { grid-template-columns: 1fr; }
@@ -1276,9 +1314,43 @@
     .rli-score { font-size: 12px; }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
+    }
+    .timeline-item.reveal-pending { opacity: 1; transform: none; }
+  }
 </style>
+<noscript><style>
+  .radar-container { display: none; }
+  .radar-wrap { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    nav { position: relative; flex-direction: column; gap: 20px; }
+    .nav-toggle { display: none; }
+    .nav-links {
+      display: flex;
+      position: static;
+      height: auto;
+      padding: 0;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px 20px;
+      background: none;
+      backdrop-filter: none;
+      overflow: visible;
+    }
+    .nav-links a { font-size: 12px; }
+  }
+</style></noscript>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="grid-bg"></div>
 <div class="orb orb-1"></div>
@@ -1286,7 +1358,7 @@
 <div class="orb orb-3"></div>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Main navigation">
   <a href="#hero" class="nav-logo">RB<span style="color:var(--text-muted)">.</span></a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
@@ -1295,12 +1367,13 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
+  <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
 </nav>
 
 <!-- HERO -->
+<main id="main-content" tabindex="-1">
 <section id="hero">
   <div class="hero-inner" style="position:relative;">
     <div class="hero-left">
@@ -1335,8 +1408,8 @@
             <div class="stat-label">Base location</div>
           </div>
           <div class="stat-right">
-            <div class="stat-value" style="font-size:16px; color:var(--text)">Lisbon, PT</div>
-            <div class="stat-sub">Remote EU ready</div>
+            <div class="stat-value" style="font-size:16px; color:var(--text)">Israel</div>
+            <div class="stat-sub">Open to remote opportunities</div>
           </div>
         </div>
         <div class="stat-row">
@@ -1345,7 +1418,7 @@
           </div>
           <div class="stat-right">
             <div class="stat-value" style="font-size:15px; color:var(--text)">EN · PT · ES · HE</div>
-            <div class="stat-sub">4 languages fluent+</div>
+            <div class="stat-sub">Multilingual communication</div>
           </div>
         </div>
         <div class="stat-row">
@@ -1353,7 +1426,7 @@
             <div class="stat-label">Current focus</div>
           </div>
           <div class="stat-right">
-            <div class="stat-value" style="font-size:14px; color:var(--neon3)">Full-cycle Pre-Sales + Applied AI</div>
+            <div class="stat-value" style="font-size:14px; color:var(--purple-text)">Full-cycle Pre-Sales + Applied AI</div>
             <div class="stat-sub">Discovery → Close → Production</div>
           </div>
         </div>
@@ -1438,7 +1511,7 @@
       <div class="about-right">
         <div class="info-block">
           <div class="info-block-label">Based in</div>
-          <div class="info-block-value">Lisbon, Portugal — Remote EU/Global</div>
+          <div class="info-block-value">Israel — Open to remote opportunities</div>
         </div>
         <div class="info-block">
           <div class="info-block-label">Education</div>
@@ -1475,13 +1548,30 @@
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="year">2025–Present</span>
+          <span class="year">Mar–Sep 2026</span>
+          <span class="company">ActionAI</span>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="exp-role">Principal Pre Sales AI Engineer</div>
+          <div class="exp-company">ACTIONAI — Portugal</div>
+          <p class="exp-desc">Led enterprise AI discovery, scoping, workflow and integration design, pilot delivery, and handoff into live deployment. Worked across finance, audit, and operations for customers in the UAE and EU, helping them move from AI experiments toward operational systems.</p>
+          <div class="exp-impact">Codified delivery methods, tooling, and patterns for reliable enterprise AI agents.</div>
+          <div class="exp-tags">
+            <span class="exp-tag">Enterprise AI</span><span class="exp-tag">Pre-Sales Discovery</span><span class="exp-tag">AI Agents</span><span class="exp-tag">Integration Design</span><span class="exp-tag">Pilot Delivery</span><span class="exp-tag">Production Handoff</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <span class="year">Sep 2025–Present</span>
           <span class="company">HeyBirdie.AI</span>
           <div class="timeline-dot"></div>
         </div>
         <div class="timeline-content">
-          <div class="exp-role">Founder & Applied AI Systems Engineer</div>
-          <div class="exp-company">HEYBIRDIE.AI</div>
+          <div class="exp-role">Founder &amp; AI Systems Engineer</div>
+          <div class="exp-company">HEYBIRDIE.AI — Side project</div>
           <p class="exp-desc">Built an AI voice agent platform from zero to live production. Real-time multi-turn conversations, streaming inference, tool-use integration — designed to handle the constraints that kill most AI demos in production: latency, state management, and graceful failure.</p>
           <div class="exp-impact">Proof I don't just sell technology — I ship it.</div>
           <div class="exp-tags">
@@ -1492,13 +1582,13 @@
 
       <div class="timeline-item">
         <div class="timeline-date">
-          <span class="year">2024–Present</span>
+          <span class="year">Jul 2024–Present</span>
           <span class="company">Datanised</span>
           <div class="timeline-dot" style="background:var(--neon2); box-shadow:0 0 12px rgba(0,128,255,0.5);"></div>
         </div>
         <div class="timeline-content">
-          <div class="exp-role">Co-Founder & Lead Solutions Architect</div>
-          <div class="exp-company" style="color:var(--neon2);">DATANISED</div>
+          <div class="exp-role">Co-Founder &amp; Technical Lead</div>
+          <div class="exp-company" style="color:var(--neon2);">DATANISED — Consulting company</div>
           <p class="exp-desc">Co-founded a consultancy that takes companies from "we need to modernize" to production-ready architecture. I run discovery, design the solution, and deliver — no handoff gap.</p>
           <div class="exp-impact">Repeatable frameworks for PoC delivery and enterprise onboarding.</div>
           <div class="exp-tags">
@@ -1515,7 +1605,7 @@
         </div>
         <div class="timeline-content">
           <div class="exp-role">Senior Customer Solutions Architect</div>
-          <div class="exp-company" style="color:var(--neon3);">SCYLLADB — Remote</div>
+          <div class="exp-company" style="color:var(--purple-text);">SCYLLADB — Remote</div>
           <p class="exp-desc">Owned the full technical sales cycle for Fortune 500 accounts across EMEA. Ran PoCs with clear success criteria, presented architectural trade-offs to CTO-level stakeholders, led escalations for mission-critical distributed workloads serving tens of millions of users.</p>
           <div class="exp-impact">The accounts I owned were the ones where the deal couldn't afford to lose on technical credibility.</div>
           <div class="exp-tags">
@@ -1734,42 +1824,42 @@
 
         <div class="radar-legend-item">
           <span class="rli-label">Pre-Sales Engineering</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill green" data-width="95"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill green" data-width="95" style="--score: 95%"></div></div>
           <span class="rli-score green">95</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Solution Architecture</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill green" data-width="90"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill green" data-width="90" style="--score: 90%"></div></div>
           <span class="rli-score green">90</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Applied AI / LLMs</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill blue" data-width="82"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill blue" data-width="82" style="--score: 82%"></div></div>
           <span class="rli-score blue">82</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Customer Success</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill blue" data-width="88"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill blue" data-width="88" style="--score: 88%"></div></div>
           <span class="rli-score blue">88</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Cloud Infrastructure</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill purple" data-width="78"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill purple" data-width="78" style="--score: 78%"></div></div>
           <span class="rli-score purple">78</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Engineering / Python</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill purple" data-width="72"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill purple" data-width="72" style="--score: 72%"></div></div>
           <span class="rli-score purple">72</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Distributed Systems</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill green" data-width="85"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill green" data-width="85" style="--score: 85%"></div></div>
           <span class="rli-score green">85</span>
         </div>
         <div class="radar-legend-item">
           <span class="rli-label">Stakeholder Comms</span>
-          <div class="rli-bar-track"><div class="rli-bar-fill blue" data-width="93"></div></div>
+          <div class="rli-bar-track"><div class="rli-bar-fill blue" data-width="93" style="--score: 93%"></div></div>
           <span class="rli-score blue">93</span>
         </div>
       </div>
@@ -1880,8 +1970,9 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer style="flex-wrap:wrap;">
-  <span class="footer-text">&copy; 2026 Ricardo Borenstein — Lisbon, Portugal</span>
+  <span class="footer-text">&copy; 2026 Ricardo Borenstein — Israel</span>
   <div class="footer-status">
     <div class="status-dot"></div>
     Open to opportunities
@@ -1900,14 +1991,29 @@
   Want to see what else I can build? ricardo.borenstein@gmail.com
   `, 'color: #00f5c4; font-family: monospace; font-size: 12px;');
 
-  // Scroll-triggered animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
+  // Content is visible by default; enhance only when animation is supported.
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const canObserve = 'IntersectionObserver' in window;
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  let timelineObserver;
+  if (canObserve && !motionPreference.matches) {
+    timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.remove('reveal-pending');
+        timelineObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    timelineItems.forEach(item => {
+      item.classList.add('reveal-pending');
+      timelineObserver.observe(item);
     });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+  }
+  motionPreference.addEventListener('change', event => {
+    if (!event.matches) return;
+    if (timelineObserver) timelineObserver.disconnect();
+    timelineItems.forEach(item => item.classList.remove('reveal-pending'));
+  });
 
   // Smooth active nav highlighting
   const sections = document.querySelectorAll('section[id]');
@@ -1994,52 +2100,105 @@
       dotsG.appendChild(circle);
     });
 
-    // IntersectionObserver to trigger animations
     const section = document.getElementById('radar-section');
-    const radarObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-
-        // Animate polygon
-        poly.classList.remove('initial');
-        poly.classList.add('animated');
-
-        // Animate dots
-        document.querySelectorAll('.radar-dot').forEach((d, i) => {
-          setTimeout(() => d.classList.add('visible'), 900 + i * 60);
-        });
-
-        // Animate legend bars
-        document.querySelectorAll('.rli-bar-fill').forEach((bar, i) => {
-          setTimeout(() => {
-            bar.style.width = bar.dataset.width + '%';
-          }, 200 + i * 80);
-        });
-
-        radarObs.unobserve(e.target);
+    let radarObserver;
+    function revealRadar(animate) {
+      poly.classList.remove('initial');
+      poly.classList.add('animated');
+      section.querySelectorAll('.radar-dot').forEach((dot, i) => {
+        dot.style.transitionDelay = animate ? (900 + i * 60) + 'ms' : '0ms';
+        dot.classList.add('visible');
       });
-    }, { threshold: 0.25 });
+      section.querySelectorAll('.rli-bar-fill').forEach((bar, i) => {
+        bar.style.transitionDelay = animate ? (200 + i * 80) + 'ms' : '0ms';
+      });
+      section.classList.remove('radar-pending');
+    }
 
-    radarObs.observe(section);
+    if (canObserve && !motionPreference.matches) {
+      radarObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          revealRadar(true);
+          radarObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.25 });
+      section.classList.add('radar-pending');
+      radarObserver.observe(section);
+    } else {
+      revealRadar(false);
+    }
+    motionPreference.addEventListener('change', event => {
+      if (!event.matches) return;
+      if (radarObserver) radarObserver.disconnect();
+      revealRadar(false);
+    });
   })();
 
   // ── MOBILE NAV TOGGLE ──
+  (() => {
   const navToggle = document.getElementById('nav-toggle');
   const navLinksEl = document.getElementById('nav-links');
+  const mobileNav = window.matchMedia('(max-width: 600px)');
+  const navLinks = Array.from(navLinksEl.querySelectorAll('a'));
+  let menuOpen = false;
+  let previousOverflow = '';
+
+  function setMenuOpen(open, restoreFocus = false) {
+    open = open && mobileNav.matches;
+    if (open && !menuOpen) {
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    } else if (!open && menuOpen) {
+      document.body.style.overflow = previousOverflow;
+    }
+    menuOpen = open;
+    navToggle.classList.toggle('active', open);
+    navLinksEl.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) navLinks[0].focus();
+    else if (restoreFocus) navToggle.focus();
+  }
 
   navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navLinksEl.classList.toggle('open');
-    document.body.style.overflow = navLinksEl.classList.contains('open') ? 'hidden' : '';
+    setMenuOpen(!menuOpen, menuOpen);
   });
 
-  navLinksEl.querySelectorAll('a').forEach(link => {
+  navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navLinksEl.classList.remove('open');
-      document.body.style.overflow = '';
+      if (!menuOpen) return;
+      setMenuOpen(false);
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
     });
   });
+
+  document.addEventListener('keydown', event => {
+    if (!menuOpen) return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      setMenuOpen(false, true);
+    } else if (event.key === 'Tab') {
+      const controls = [...navLinks, navToggle];
+      const index = controls.indexOf(document.activeElement);
+      if (index === -1 || (event.shiftKey && index === 0) || (!event.shiftKey && index === controls.length - 1)) {
+        event.preventDefault();
+        controls[event.shiftKey ? controls.length - 1 : 0].focus();
+      }
+    }
+  });
+
+  mobileNav.addEventListener('change', () => {
+    const activeElement = document.activeElement;
+    setMenuOpen(false);
+    if (!mobileNav.matches && activeElement === navToggle) navLinks[0].focus();
+    else if (mobileNav.matches && navLinksEl.contains(activeElement)) navToggle.focus();
+  });
+  })();
 
 </script>
 
