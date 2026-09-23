@@ -1,2 +1,4 @@
 python-fasthtml==0.12.47
+# FastHTML 0.12 uses lifecycle hooks removed in Starlette 1.0.
+starlette==0.52.1
 uvicorn==0.34.0
