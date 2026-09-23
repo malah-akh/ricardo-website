@@ -1,7 +1,9 @@
 from pathlib import Path
 from fasthtml.common import *
 
-app, rt = fast_app()
+_app, rt = fast_app()
+# Vercel's entrypoint detector requires an explicit top-level app assignment.
+app = _app
 
 HERE = Path(__file__).parent
 
