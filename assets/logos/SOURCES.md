@@ -32,3 +32,5 @@ Additional logo artwork (2026-09-28):
 - zoox.png: https://zoox.com/common/assets/images/zoox-schema-logo.png
 - jiocinema.svg: https://brandlogos.sgp1.digitaloceanspaces.com/svg/cbi/jiocinema.svg
 - TSMC: https://companieslogo.com/img/orig/TSM-f70117e2.png?t=1722952500
+
+Correction: the customer is ZEE5, not Zee. ZEE5 vector mark: https://brandlogos.sgp1.digitaloceanspaces.com/svg/arcticons/zee5.svg (Arcticons).
