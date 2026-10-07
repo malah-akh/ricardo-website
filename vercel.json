@@ -44,6 +44,33 @@
           "value": "public, max-age=3600"
         }
       ]
+    },
+    {
+      "source": "/assets/(.*).webp",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/webp"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*).jpg",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
     }
   ]
 }
