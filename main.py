@@ -1,4 +1,8 @@
 from pathlib import Path
+import mimetypes
+
+# Some production Python images do not include WebP in their MIME database.
+mimetypes.add_type("image/webp", ".webp")
 from fasthtml.common import *
 from starlette.middleware import Middleware
 
