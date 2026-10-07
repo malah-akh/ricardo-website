@@ -34,3 +34,9 @@ Additional logo artwork (2026-09-28):
 - TSMC: https://companieslogo.com/img/orig/TSM-f70117e2.png?t=1722952500
 
 Correction: the customer is ZEE5, not Zee. ZEE5 vector mark: https://brandlogos.sgp1.digitaloceanspaces.com/svg/arcticons/zee5.svg (Arcticons).
+
+Display optimisation (2026-10-07):
+- ScyllaDB SVG retains the original vector paths; embedded Illustrator editing data was removed.
+- Chess.com, Datanised, TSMC, and Zoox display copies are lossless WebP, sized for up to 3× the carousel display dimensions. Original PNGs remain as source artwork.
+- The RB display logo is a 132×132 lossless WebP of the existing SVG's crop. The original PNG remains as source artwork.
+- `scripts/optimize_assets.py` regenerates the WebP copies and 1200×630 social banner using Pillow.
